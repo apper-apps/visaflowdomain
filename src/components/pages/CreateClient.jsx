@@ -55,7 +55,7 @@ const CreateClient = () => {
       return;
     }
 
-    setLoading(true);
+setLoading(true);
     try {
       const newClient = await createClient(formData);
       toast.success("Client portal created successfully!");
@@ -64,6 +64,17 @@ const CreateClient = () => {
       const portalLink = `${window.location.origin}/${newClient.portalLink}`;
       await navigator.clipboard.writeText(portalLink);
       toast.info("Portal link copied to clipboard");
+      
+      // Show success with portal access options
+      const experiencePortal = window.confirm(
+        "Client portal created successfully!\n\nWould you like to experience the client portal now?\n\nClick OK to view the portal as your client would see it, or Cancel to return to the clients list."
+      );
+      
+      if (experiencePortal) {
+        // Extract token from portal link for navigation
+        const token = newClient.portalLink.split('/').pop();
+        window.open(`/portal/${token}`, '_blank');
+      }
       
       navigate("/clients");
     } catch (err) {
