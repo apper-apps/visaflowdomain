@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "name": "John Smith",
+    "email": "john.smith@email.com",
+    "phone": "+61 412 345 678",
+    "portalLink": "portal/client-abc123",
+    "createdAt": "2024-01-15T09:00:00.000Z"
+  },
+  {
+    "Id": 2,
+    "name": "Maria Rodriguez",
+    "email": "maria.rodriguez@email.com",
+    "phone": "+61 423 456 789",
+    "portalLink": "portal/client-def456",
+    "createdAt": "2024-01-20T14:30:00.000Z"
+  },
+  {
+    "Id": 3,
+    "name": "David Chen",
+    "email": "david.chen@email.com",
+    "phone": "+61 434 567 890",
+    "portalLink": "portal/client-ghi789",
+    "createdAt": "2024-01-25T11:15:00.000Z"
+  },
+  {
+    "Id": 4,
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@email.com",
+    "phone": "+61 445 678 901",
+    "portalLink": "portal/client-jkl012",
+    "createdAt": "2024-02-01T16:45:00.000Z"
+  },
+  {
+    "Id": 5,
+    "name": "Ahmed Hassan",
+    "email": "ahmed.hassan@email.com",
+    "phone": "+61 456 789 012",
+    "portalLink": "portal/client-mno345",
+    "createdAt": "2024-02-05T10:20:00.000Z"
+  }
+]

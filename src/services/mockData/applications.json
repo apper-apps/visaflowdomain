@@ -1,0 +1,253 @@
+[
+  {
+    "Id": 1,
+    "clientId": 1,
+    "visaType": "Student Visa (Subclass 500)",
+    "status": "New",
+    "formData": {
+      "personalInfo": {
+        "firstName": "John",
+        "lastName": "Smith",
+        "dateOfBirth": "1995-03-15",
+        "nationality": "United Kingdom",
+        "passportNumber": "AB123456",
+        "passportExpiry": "2028-03-15",
+        "email": "john.smith@email.com",
+        "phone": "+61 412 345 678"
+      },
+      "applicationDetails": {
+        "purpose": "Pursuing Bachelor of Engineering",
+        "plannedArrival": "2024-07-15",
+        "plannedDeparture": "2027-12-15",
+        "institution": "University of Sydney",
+        "criminalHistory": "no"
+      },
+      "financialInfo": {
+        "funds": "50000",
+        "employment": "Student",
+        "sponsor": "Parents"
+      }
+    },
+    "documents": [
+      {
+        "Id": 1,
+        "name": "passport-scan.pdf",
+        "type": "application/pdf",
+        "url": "#",
+        "uploadedAt": "2024-01-15T10:00:00.000Z"
+      }
+    ],
+    "messages": [],
+    "createdAt": "2024-01-15T09:00:00.000Z",
+    "updatedAt": "2024-01-15T09:00:00.000Z"
+  },
+  {
+    "Id": 2,
+    "clientId": 2,
+    "visaType": "Skilled Worker Visa (Subclass 189)",
+    "status": "In Review",
+    "formData": {
+      "personalInfo": {
+        "firstName": "Maria",
+        "lastName": "Rodriguez",
+        "dateOfBirth": "1988-07-22",
+        "nationality": "Spain",
+        "passportNumber": "ES987654",
+        "passportExpiry": "2027-07-22",
+        "email": "maria.rodriguez@email.com",
+        "phone": "+61 423 456 789"
+      },
+      "applicationDetails": {
+        "purpose": "Permanent residence for skilled worker",
+        "plannedArrival": "2024-06-01",
+        "occupation": "Software Engineer",
+        "criminalHistory": "no"
+      },
+      "financialInfo": {
+        "funds": "75000",
+        "employment": "Software Engineer",
+        "sponsor": ""
+      }
+    },
+    "documents": [
+      {
+        "Id": 2,
+        "name": "skills-assessment.pdf",
+        "type": "application/pdf",
+        "url": "#",
+        "uploadedAt": "2024-01-20T15:00:00.000Z"
+      }
+    ],
+    "messages": [
+      {
+        "Id": 1,
+        "sender": "agent",
+        "content": "Thank you for submitting your application. I'm currently reviewing your documents.",
+        "timestamp": "2024-01-21T09:00:00.000Z",
+        "isRead": true
+      }
+    ],
+    "createdAt": "2024-01-20T14:30:00.000Z",
+    "updatedAt": "2024-01-21T09:00:00.000Z"
+  },
+  {
+    "Id": 3,
+    "clientId": 3,
+    "visaType": "Partner Visa (Subclass 820)",
+    "status": "Additional Info Required",
+    "formData": {
+      "personalInfo": {
+        "firstName": "David",
+        "lastName": "Chen",
+        "dateOfBirth": "1990-11-05",
+        "nationality": "China",
+        "passportNumber": "CN456789",
+        "passportExpiry": "2026-11-05",
+        "email": "david.chen@email.com",
+        "phone": "+61 434 567 890"
+      },
+      "applicationDetails": {
+        "purpose": "Join spouse in Australia",
+        "plannedArrival": "2024-05-15",
+        "partnerName": "Lisa Chen",
+        "criminalHistory": "no"
+      },
+      "financialInfo": {
+        "funds": "30000",
+        "employment": "Marketing Manager",
+        "sponsor": "Lisa Chen"
+      }
+    },
+    "documents": [
+      {
+        "Id": 3,
+        "name": "marriage-certificate.pdf",
+        "type": "application/pdf",
+        "url": "#",
+        "uploadedAt": "2024-01-25T12:00:00.000Z"
+      }
+    ],
+    "messages": [
+      {
+        "Id": 2,
+        "sender": "agent",
+        "content": "I need additional documentation for your partner visa application. Please provide proof of relationship evidence covering the last 12 months.",
+        "timestamp": "2024-01-26T14:00:00.000Z",
+        "isRead": true
+      }
+    ],
+    "createdAt": "2024-01-25T11:15:00.000Z",
+    "updatedAt": "2024-01-26T14:00:00.000Z"
+  },
+  {
+    "Id": 4,
+    "clientId": 4,
+    "visaType": "Visitor Visa (Subclass 600)",
+    "status": "Ready to Submit",
+    "formData": {
+      "personalInfo": {
+        "firstName": "Sarah",
+        "lastName": "Johnson",
+        "dateOfBirth": "1985-09-12",
+        "nationality": "Canada",
+        "passportNumber": "CA789012",
+        "passportExpiry": "2029-09-12",
+        "email": "sarah.johnson@email.com",
+        "phone": "+61 445 678 901"
+      },
+      "applicationDetails": {
+        "purpose": "Tourism and visiting friends",
+        "plannedArrival": "2024-04-01",
+        "plannedDeparture": "2024-04-30",
+        "criminalHistory": "no"
+      },
+      "financialInfo": {
+        "funds": "15000",
+        "employment": "Teacher",
+        "sponsor": ""
+      }
+    },
+    "documents": [
+      {
+        "Id": 4,
+        "name": "bank-statement.pdf",
+        "type": "application/pdf",
+        "url": "#",
+        "uploadedAt": "2024-02-01T17:00:00.000Z"
+      },
+      {
+        "Id": 5,
+        "name": "employment-letter.pdf",
+        "type": "application/pdf",
+        "url": "#",
+        "uploadedAt": "2024-02-01T17:05:00.000Z"
+      }
+    ],
+    "messages": [
+      {
+        "Id": 3,
+        "sender": "agent",
+        "content": "Your application looks complete and ready for submission to the Department of Immigration.",
+        "timestamp": "2024-02-02T10:00:00.000Z",
+        "isRead": true
+      }
+    ],
+    "createdAt": "2024-02-01T16:45:00.000Z",
+    "updatedAt": "2024-02-02T10:00:00.000Z"
+  },
+  {
+    "Id": 5,
+    "clientId": 5,
+    "visaType": "Business Visa (Subclass 188)",
+    "status": "Submitted",
+    "formData": {
+      "personalInfo": {
+        "firstName": "Ahmed",
+        "lastName": "Hassan",
+        "dateOfBirth": "1978-04-18",
+        "nationality": "Egypt",
+        "passportNumber": "EG345678",
+        "passportExpiry": "2026-04-18",
+        "email": "ahmed.hassan@email.com",
+        "phone": "+61 456 789 012"
+      },
+      "applicationDetails": {
+        "purpose": "Establish business operations in Australia",
+        "plannedArrival": "2024-03-15",
+        "criminalHistory": "no"
+      },
+      "financialInfo": {
+        "funds": "500000",
+        "employment": "Business Owner",
+        "sponsor": ""
+      }
+    },
+    "documents": [
+      {
+        "Id": 6,
+        "name": "business-plan.pdf",
+        "type": "application/pdf",
+        "url": "#",
+        "uploadedAt": "2024-02-05T11:00:00.000Z"
+      },
+      {
+        "Id": 7,
+        "name": "financial-records.pdf",
+        "type": "application/pdf",
+        "url": "#",
+        "uploadedAt": "2024-02-05T11:05:00.000Z"
+      }
+    ],
+    "messages": [
+      {
+        "Id": 4,
+        "sender": "agent",
+        "content": "Your application has been successfully submitted to the Department of Immigration. Reference number: BV2024-AH-001.",
+        "timestamp": "2024-02-06T09:00:00.000Z",
+        "isRead": true
+      }
+    ],
+    "createdAt": "2024-02-05T10:20:00.000Z",
+    "updatedAt": "2024-02-06T09:00:00.000Z"
+  }
+]
