@@ -48,37 +48,90 @@ const CreateClient = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!validateForm()) {
       return;
     }
 
-setLoading(true);
+    setLoading(true);
     try {
       const newClient = await createClient(formData);
       toast.success("Client portal created successfully!");
       
-      // Copy portal link to clipboard
+      // Generate portal link with better error handling
       const portalLink = `${window.location.origin}/${newClient.portalLink}`;
-      await navigator.clipboard.writeText(portalLink);
-      toast.info("Portal link copied to clipboard");
       
-      // Show success with portal access options
+      // Try to copy to clipboard, but don't fail if it doesn't work
+      try {
+        await navigator.clipboard.writeText(portalLink);
+        toast.info("Portal link copied to clipboard");
+      } catch (clipboardErr) {
+        // Clipboard access might fail in some browsers, but continue demo
+        console.log("Clipboard access not available, continuing with demo");
+      }
+      
+      // Enhanced success dialog for demo experience
       const experiencePortal = window.confirm(
-        "Client portal created successfully!\n\nWould you like to experience the client portal now?\n\nClick OK to view the portal as your client would see it, or Cancel to return to the clients list."
+        `✅ Client portal created successfully for ${formData.name}!\n\n🚀 Ready to experience the full client journey?\n\nClick OK to view the portal as your client would see it - from visa selection through application submission.\n\nThis will open the client portal in a new tab where you can demo the complete experience.`
       );
       
       if (experiencePortal) {
-        // Extract token from portal link for navigation
-        const token = newClient.portalLink.split('/').pop();
-        window.open(`/portal/${token}`, '_blank');
+        // Extract token from portal link for navigation with better validation
+        const token = newClient.portalLink ? newClient.portalLink.split('/').pop() : 'demo';
+        
+        // Open portal in new tab for demo experience
+        const portalUrl = `/portal/${token}`;
+        const newWindow = window.open(portalUrl, '_blank');
+        
+        if (newWindow) {
+          toast.success("Portal opened! Demo the complete client experience in the new tab.");
+        } else {
+          toast.warning("Portal link ready! Please allow popups to view the demo experience.");
+          // Fallback: provide manual navigation option
+          setTimeout(() => {
+            const manualNav = window.confirm("Click OK to navigate to the portal in this tab, or Cancel to stay here.");
+            if (manualNav) {
+              window.location.href = portalUrl;
+              return; // Don't navigate to clients if going to portal
+            }
+          }, 1000);
+        }
       }
       
-      navigate("/clients");
+      // Only navigate to clients if not going to portal
+      if (!experiencePortal) {
+        navigate("/clients");
+      }
+      
     } catch (err) {
-      toast.error(err.message);
+      // Enhanced error handling for demo scenarios
+      console.error("Client creation error:", err);
+      
+      // Provide user-friendly error message that doesn't block demo
+      const errorMessage = err.message || "Unable to create client portal";
+      
+      if (errorMessage.includes("validation") || errorMessage.includes("required")) {
+        toast.error("Please check all required fields and try again.");
+      } else {
+        // For demo purposes, offer to continue even with technical errors
+        toast.error(`Creation issue: ${errorMessage}`);
+        
+        // In demo scenarios, offer alternative flow
+        setTimeout(() => {
+          const continueDemo = window.confirm(
+            "Technical issue encountered, but we can continue the demo!\n\nWould you like to experience an existing client portal to showcase the full application process?"
+          );
+          
+          if (continueDemo) {
+            // Use existing demo portal for showcase
+            const demoToken = "client-abc123";
+            window.open(`/portal/${demoToken}`, '_blank');
+            toast.info("Opening demo portal - experience the complete client journey!");
+          }
+        }, 2000);
+      }
     } finally {
       setLoading(false);
     }
